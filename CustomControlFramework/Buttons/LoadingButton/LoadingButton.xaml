@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CustomControlFramework.Buttons.LoadingButton.LoadingButton"
+             x:Name="this">
+    <ContentView.Resources>
+        <ResourceDictionary>
+            <Color x:Key="Primary">#512BD4</Color>
+        </ResourceDictionary>
+    </ContentView.Resources>
+    <ContentView.Content>
+        <Frame BackgroundColor="{StaticResource Primary}">
+            <Frame.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding Command, Source={x:Reference this}}"/>
+            </Frame.GestureRecognizers>
+            <Frame.Triggers>
+                <DataTrigger TargetType="Grid" Binding="{Binding IsLoading, Source={x:Reference this}}" Value="true">
+                    <Setter Property="IsEnabled" Value="False" />
+                </DataTrigger>
+                <DataTrigger TargetType="Grid" Binding="{Binding IsLoading, Source={x:Reference this}}" Value="False">
+                    <Setter Property="IsEnabled" Value="True" />
+                </DataTrigger>
+            </Frame.Triggers>
+            <Grid>
+                <Label x:Name="LabelTitle" Text="{Binding Text, Source={x:Reference this}}" TextColor="White" FontAttributes="Bold" HorizontalOptions="Center" Margin="20"/>
+                <ActivityIndicator Color="White" IsRunning="{Binding IsLoading, Source={x:Reference this}}" VerticalOptions="Center"/>
+            </Grid>
+        </Frame>
+    </ContentView.Content>
+</ContentView>
