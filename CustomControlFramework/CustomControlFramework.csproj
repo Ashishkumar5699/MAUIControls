@@ -24,6 +24,7 @@
 	<ItemGroup>
 		<PackageReference Include="Microsoft.Maui.Controls" Version="$(MauiVersion)" />
 		<PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="$(MauiVersion)" />
+		<PackageReference Include="CommunityToolkit.Maui" Version="9.0.3" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -39,10 +40,12 @@
 	  <None Remove="Style\" />
 	  <None Remove="Entry\" />
 	  <None Remove="StackLayout\" />
+	  <None Remove="Layout\" />
 	</ItemGroup>
 	<ItemGroup>
 	  <Folder Include="Style\" />
 	  <Folder Include="Entry\" />
 	  <Folder Include="StackLayout\" />
+	  <Folder Include="Layout\" />
 	</ItemGroup>
 </Project>
