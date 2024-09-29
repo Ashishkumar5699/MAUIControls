@@ -6,24 +6,25 @@
              x:Name="_ContentPageMobileBase" BindingContext="{x:Reference _ContentPageMobileBase}">
     <ContentPage.ControlTemplate>
         <ControlTemplate>
-            <Grid>
-                <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+            <Grid RowDefinitions="auto,*">
+                <ProgressBar Progress="{TemplateBinding ProgressValue}"
+                             IsVisible="{TemplateBinding ShowProgres}"
+                             VerticalOptions="StartAndExpand" ProgressColor="Orange" >
+                    <!--<ProgressBar.Behaviors>
+                          <toolkit:ProgressBarAnimationBehavior
+                                BindingContext="{x:Reference _ContentPageMobileBase}"
+                                Progress="{TemplateBinding Path=ProgressValue}"
+                                Length="500"/>
+                      </ProgressBar.Behaviors>-->
+                </ProgressBar>
+                <ContentPresenter Grid.Row="1" AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="All" />
+                <StackLayout Grid.Row="1" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
                     <ActivityIndicator
                         Margin="4,4"
                         IsRunning="{TemplateBinding ShowActivityIndicator}"
                         IsVisible="{TemplateBinding ShowActivityIndicator}"
-                        VerticalOptions="Center"
-                        Color="DarkGreen" />
+                        VerticalOptions="Center" />
                 </StackLayout>
-                <!--<ProgressBar ProgressColor="Orange" IsVisible="{TemplateBinding ShowProgres}">
-                    <ProgressBar.Behaviors>
-                          <toolkit:ProgressBarAnimationBehavior
-                              BindingContext="{x:Reference _ContentPageMobileBase}"
-                              Progress="{TemplateBinding ProgressValue}"
-                              Length="500"/>
-                      </ProgressBar.Behaviors>
-                </ProgressBar>-->
-                <ContentPresenter AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="All" />
             </Grid>
         </ControlTemplate>
     </ContentPage.ControlTemplate>

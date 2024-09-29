@@ -4,14 +4,7 @@ public partial class ContentPageMobileBase : ContentPage
 {
 	public ContentPageMobileBase()
 	{
-		try
-		{
-			InitializeComponent();
-		}
-		catch (Exception ex)
-		{
-
-		}
+		InitializeComponent();
 	}
 
 	#region Bindable Propertices

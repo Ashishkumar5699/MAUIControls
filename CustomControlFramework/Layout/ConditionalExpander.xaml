@@ -4,16 +4,17 @@
              xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
              xmlns:Converter="clr-namespace:CustomControlFramework.Converter;assembly=CustomControlFramework"
              x:Class="CustomControlFramework.Layout.ConditionalExpander"
-             x:Name="_conditionalExpander" >
+             x:Name="_conditionalExpander">
     <toolkit:Expander>
         <toolkit:Expander.Header>
             <Frame HorizontalOptions="FillAndExpand" BackgroundColor="Orange">
                 <Frame.Triggers>
-                    <DataTrigger TargetType="Frame" Binding="{Binding Condition}" Value="true">
+                    <DataTrigger Binding="{Binding BindingContext.ConditionValue, Source={x:Reference _conditionalExpander}}"
+                                 TargetType="Frame" Value="true">
                         <Setter Property="BackgroundColor" Value="LightGreen"/>
                     </DataTrigger>
                 </Frame.Triggers>
-                <ContentView x:Name="header"/>
+                    <ContentView x:Name="header" />
             </Frame>
         </toolkit:Expander.Header>
             <ContentView x:Name="content"/>

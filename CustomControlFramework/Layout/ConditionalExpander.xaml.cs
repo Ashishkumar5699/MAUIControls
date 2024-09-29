@@ -4,8 +4,7 @@ namespace CustomControlFramework.Layout;
 
 public partial class ConditionalExpander : ContentView
 {
-    //public static readonly BindableProperty HeadingProperty = BindableProperty.Create(nameof(Heading), typeof(string), typeof(ConditionalExpander), null);
-    public static readonly BindableProperty ConditionProperty = BindableProperty.Create(nameof(Condition), typeof(bool), typeof(ConditionalExpander), false);
+    public static readonly BindableProperty ConditionProperty = BindableProperty.Create(nameof(ConditionValue), typeof(bool), typeof(ConditionalExpander), false,BindingMode.TwoWay);
     public static readonly BindableProperty HeaderViewProperty = BindableProperty.Create(nameof(HeaderView), typeof(View), typeof(ConditionalExpander));
     public static readonly BindableProperty ContentViewProperty = BindableProperty.Create(nameof(ContentView), typeof(View), typeof(ConditionalExpander));
 
@@ -28,13 +27,7 @@ public partial class ConditionalExpander : ContentView
         }
     }
 
-    //public string Heading
-    //{
-    //    get => (string)GetValue(HeadingProperty);
-    //    set => SetValue(HeadingProperty, value);
-    //}
-
-    public bool Condition
+    public bool ConditionValue
     {
         get => (bool)GetValue(ConditionProperty);
         set => SetValue(ConditionProperty, value);
