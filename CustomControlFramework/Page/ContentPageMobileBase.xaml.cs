@@ -7,6 +7,18 @@ public partial class ContentPageMobileBase : ContentPage
 		InitializeComponent();
 	}
 
+	private async void OnLabelTapped(object sender, EventArgs e)
+    {
+        // Get the text from the label
+		string labelText = (sender as dynamic).Text;
+
+        if (!string.IsNullOrEmpty(labelText))
+        {
+            // Copy the text to clipboard
+            await Clipboard.SetTextAsync(labelText);
+        }
+    }
+
 	#region Bindable Propertices
 
 	/// <summary>
